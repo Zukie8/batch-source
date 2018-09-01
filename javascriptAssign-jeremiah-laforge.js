@@ -198,8 +198,12 @@ function printShape(shape, height, char) {
 // f([1,2,3,4,5], 6) = [2,3,4,5,1]
 // f([1,2,3,4,5], 3) = [4,5,1,2,3]
 
-function rotateLeft() {
-
+function rotateLeft(array, n) {
+    let copyArr = array.slice();
+    for(i = 0;i<array.length;i++ ){
+        array[i] = copyArr[(i+n)%array.length];
+    }
+   return array;
 }
 
 // 13.   Balanced Brackets
