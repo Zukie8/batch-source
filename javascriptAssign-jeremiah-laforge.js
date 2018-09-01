@@ -122,8 +122,27 @@ function removeCharacter(str, num) {
 // Define function: bubbleSort(numArray)
 // Use the bubble sort algorithm to sort the array. You'll need to look this up!
 // Return the sorted array.
-function bubbleSort() {
+function callBbblSort() {
+    let notSorted = [22, 200, 2, 26, 202, 23, 92, 264, 72, 42];
+    let sorted = bbblSort(notSorted);
+    console.log("not sorted: " + notSorted);
+    console.log("sorted: " + sorted);
+}
 
+function bbblSort(arr) {
+    var swapped;
+    do {
+        swapped = false;
+        for (var i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return arr;
 }
 
 
@@ -142,25 +161,25 @@ function isEven(num) {
 // 10.   Palindrome
 // Define function: isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false.
-function callIsPalindrome(){
+function callIsPalindrome() {
     let palindrome = "Able was I ere I saw Elba";
     let notPalin = "not a palindrome";
     console.log(isPalindrome(palindrome));
 }
 
 function isPalindrome(param) {
-   param = param.toLowerCase();
-   let regexp = /[\s]/g;
-   let processedStr = param.replace(regexp, "");
-   let reverse = processedStr;
-   let revArr = reverse.split("");
-   revArr = revArr.reverse();
-   reverse = revArr.join("");
-   if(processedStr === reverse){
-    return true;
-   }else{
-       return false;
-   }
+    param = param.toLowerCase();
+    let regexp = /[\s]/g;
+    let processedStr = param.replace(regexp, "");
+    let reverse = processedStr;
+    let revArr = reverse.split("");
+    revArr = revArr.reverse();
+    reverse = revArr.join("");
+    if (processedStr === reverse) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // 11.   Shapes
@@ -200,10 +219,10 @@ function printShape(shape, height, char) {
 
 function rotateLeft(array, n) {
     let copyArr = array.slice();
-    for(i = 0;i<array.length;i++ ){
-        array[i] = copyArr[(i+n)%array.length];
+    for (i = 0; i < array.length; i++) {
+        array[i] = copyArr[(i + n) % array.length];
     }
-   return array;
+    return array;
 }
 
 // 13.   Balanced Brackets
