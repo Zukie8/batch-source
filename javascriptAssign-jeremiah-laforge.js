@@ -100,8 +100,13 @@ function isLeapYr(param) {
 // 6.      Email Validation 
 // Define function: isValidEmail(string)
 // Create a function that checks for a valid email format.
-function validEmail(){
-    
+/*I am assuming to return true if valid
+  regular expression have a .test function in JavaScript that returns true if the 
+  string provided matches the reg expression the function is called on
+*/
+function validEmail(param) {
+    let regx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regx.test(String(param).toLowerCase()); //to lower case as email names are not case sensitive
 }
 
 // 7.     Remove Character
@@ -137,8 +142,25 @@ function isEven(num) {
 // 10.   Palindrome
 // Define function: isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false.
-function isPalindrome() {
+function callIsPalindrome(){
+    let palindrome = "Able was I ere I saw Elba";
+    let notPalin = "not a palindrome";
+    console.log(isPalindrome(palindrome));
+}
 
+function isPalindrome(param) {
+   param = param.toLowerCase();
+   let regexp = /[\s]/g;
+   let processedStr = param.replace(regexp, "");
+   let reverse = processedStr;
+   let revArr = reverse.split("");
+   revArr = revArr.reverse();
+   reverse = revArr.join("");
+   if(processedStr === reverse){
+    return true;
+   }else{
+       return false;
+   }
 }
 
 // 11.   Shapes
